@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="background-color: rgb(73, 97, 90);">
+    <h2>Login</h2>
+    <form id="login-form">
+        <input type="text" id="login-username" placeholder="Username" required>
+        <br><br>
+        <input type="password" id="login-password" placeholder="Password" required>
+        <br><br>
+        <button type="submit">Login</button>
+    </form>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const loginForm = document.getElementById('login-form');
+
+        loginForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+
+            // Check if the username and password match
+            const storedPassword = localStorage.getItem(username);
+
+            if (storedPassword === password) {
+                window.location.href = 'secured.html';
+            } else {
+                alert('Invalid credentials. Please try again.');
+            }
+        });
+    });
+</script>
+
+</html>

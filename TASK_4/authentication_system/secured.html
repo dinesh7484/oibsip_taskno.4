@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Secured Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Welcome to the Secured Page</h1>
+    <p>This is a secured page that only logged-in users can access.</p>
+    <button id="logout-button">Logout</button>
+
+
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const logoutButton = document.getElementById('logout-button');
+        logoutButton.addEventListener('click', function () {
+            localStorage.setItem('loggedIn', 'false');
+            window.location.href = './index.html'; 
+        });
+    })
+</script>
+
+</html>
